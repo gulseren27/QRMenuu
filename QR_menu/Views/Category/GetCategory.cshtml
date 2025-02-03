@@ -1,0 +1,31 @@
+﻿﻿@model QR_menu.Models.Entity.Category
+
+@{
+    ViewBag.Title = "GetCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("GUNCELLE", "Category", FormMethod.Post))
+{
+
+<div class="form-group">
+
+    @Html.LabelFor(m => m.CategoryID,"ID")
+    @Html.TextBoxFor(m => m.CategoryID, new { @class = "form-control" })
+
+
+    <br />
+
+    @Html.LabelFor(m => m.CName, "Kategori Adı")
+    @Html.TextBoxFor(m => m.CName, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(m => m.Description, "Açıklama")
+    @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+</div>
+    <div>
+        <button class="btn btn-warning">Kategori Güncelle</button>
+    </div>
+
+}
+

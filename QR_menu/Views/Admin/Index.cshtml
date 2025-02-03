@@ -1,0 +1,63 @@
+﻿@model QR_menu.Models.ViewModel.ClassModel 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="main-content">
+    <!-- Anasayfa -->
+  
+       
+    <div class="dashboard-cards">
+        
+                <div class="card">
+
+                    <i class="fas fa-list"></i>
+                    <h3>Toplam Kategori</h3>
+                    <p class="number">@Model.TotalCategories</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-box"></i>
+                    <h3>Toplam Ürün</h3>
+                    <p class="number">@Model.TotalProducts</p>
+                </div>
+        
+    </div>
+
+    <h2>Admin Bilgileri</h2>
+
+    <table class="table table-striped" width="100%" cellspacing="0">
+        <thead>
+           
+            <tr>
+                <th>ID </th>
+                <th>KULLANICI ADI</th>
+                <th>ŞİFRE</th>
+                <th>GÜNCELLE</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var a in Model.Admins) { 
+            <tr>
+                <td>@a.ID</td>
+                <td>@a.Username</td>
+                <td>@a.Password</td>
+                <td><a href="/Admin/GetAdmin/@a.ID" class="btn btn-primary">Güncelle</a></td>
+
+
+
+            </tr>}
+
+
+        </tbody>
+    </table>
+
+    
+</div>
+
+
+

@@ -1,0 +1,40 @@
+﻿@model QR_menu.Models.Entity.Product
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+
+
+    <div>
+        <label>Ürün Adı</label>
+        <input class="form-control" type="text" placeholder="Ürün Adı" name="PName" required="">
+
+    </div>
+    <div>
+        <label>Ürün Görseli</label>
+        <input class="form-control" type="file" placeholder="Görsel" name="Image" required="">
+
+    </div>
+    <div>
+        <label>Açıklama</label>
+        <input class="form-control" type="text" placeholder="Açıklama" name="PDescription" required="">
+
+    </div>
+
+    <div>
+        <label>Kategori Seçiniz</label>
+        @Html.DropDownListFor(m => m.Category.CategoryID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    </div>
+
+    <div>
+        <label>Ürün Fiyatı</label>
+        <input class="form-control" type="text" placeholder="Ürün Fiyatı" name="Price" required="">
+
+    </div>
+
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="btn3">Ürün Ekle</button>
+    </div>
+</form>

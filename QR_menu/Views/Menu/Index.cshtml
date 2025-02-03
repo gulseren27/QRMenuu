@@ -1,0 +1,77 @@
+﻿@model QR_menu.Models.ViewModel.ClassModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<!-- food section -->
+
+<section class="food_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>Menü</h2>
+        </div>
+
+        @foreach (var c in Model.Categories)
+        {
+            var categoryProducts = Model.Products.Where(p => p.CategoryID == c.CategoryID).ToList();
+
+            if (categoryProducts.Any()) // Kategoriye ait ürün varsa göster
+            {
+                <h3 class="category-title">@c.CName</h3> <!-- Kategori başlığı -->
+
+                <div class="row">
+                    <!-- Ürünleri yan yana hizalamak için -->
+                    @foreach (var p in categoryProducts)
+                    {
+                        <div class="col-md-4 col-sm-6 mb-4">
+                            <!-- 3 sütun düzeni -->
+                            <div class="box">
+                                <div class="img-box">
+                                    <img src="~/Images/@p.Image" alt="" class="img-fluid">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>@p.PName</h5>
+                                    <p>@p.PDescription</p>
+                                    <div class="options">
+                                        <h6>@p.Price ₺</h6>
+                                        @*<a href="">
+                                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                                            <g>
+                                            <g>
+                                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                                                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </a>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- 3 sütun -->
+                    }
+                </div> <!-- Satır sonu -->
+            }
+        }
+    </div>
+</section>
+
+
+<!-- end food section -->
+<!-- footer section -->
+<footer class="footer_section">
+    <div class="container">
+        <div class="row">
+        </div>
+        <div class="footer-info">
+            <p>
+                &copy; <span id="displayYear"></span> All Rights Reserved By
+                <a href="https://html.design/">Free Html Templates</a><br><br>
+                &copy; <span id="displayYear"></span> Distributed By
+                <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+            </p>
+        </div>
+    </div>
+</footer>

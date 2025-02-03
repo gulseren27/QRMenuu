@@ -1,0 +1,45 @@
+﻿@model QR_menu.Models.Entity.Product
+@{
+    ViewBag.Title = "GetProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Update", "Product", FormMethod.Post))
+{
+
+<div class="form-group">
+
+    @Html.LabelFor(m => m.PID, "ID")
+    @Html.TextBoxFor(m => m.PID, new { @class = "form-control" })
+
+
+    <br />
+    @Html.LabelFor(m => m.Image, "Görsel")
+    @Html.TextBoxFor(m => m.Image, new { @class = "form-control" })
+
+    <br />
+
+    @Html.LabelFor(m => m.PName, "Ürün Adı")
+    @Html.TextBoxFor(m => m.PName, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(m => m.PDescription, "Açıklama")
+    @Html.TextBoxFor(m => m.PDescription, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(m => m.Category)
+    @Html.DropDownListFor(m => m.Category.CategoryID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(m => m.Price)
+    @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+
+</div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+
+}
+
+

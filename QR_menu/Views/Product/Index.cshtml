@@ -1,0 +1,56 @@
+﻿@model IEnumerable<QR_menu.Models.Entity.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Ürünler</h2>
+
+
+<div>
+    <table class="table table-striped" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID </th>
+                <th>GÖRSEL </th>
+                <th>ÜRÜN ADI</th>
+                <th>AÇIKLAMA</th>
+                <th>KATEGORİ</th>
+                <th>FİYAT</th>
+                <th>GÜNCELLE</th>
+                <th>SİL</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var p in Model) { 
+            <tr>
+                <td>@p.PID</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(p.Image))
+                    {
+                        <img src="~/Images/@p.Image" alt="@p.PName" width="50" style="width: 50px; height: auto;" /> }
+                    else
+                    {
+                        <span>Resim yok</span>}
+                </td>
+                <td>@p.PName</td>
+                <td>@p.PDescription</td>
+                <td>@p.Category.CName</td>
+                <td>@p.Price ₺</td>
+                <td><a href="/Product/GetProduct/@p.PID" class="fa fa-edit"></a></td>
+                <td><a href="/Product/Delete/@p.PID" class="fa fa-trash"></a></td>
+
+            </tr>
+          }
+
+        </tbody>
+    </table>
+
+    <div>
+        <a href="/Product/Add" class="btn btn-success">Yeni Ürün Ekle</a>
+    </div>
+</div>
+
+

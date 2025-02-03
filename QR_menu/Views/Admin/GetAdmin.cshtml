@@ -1,0 +1,31 @@
+﻿@model QR_menu.Models.Entity.Admin
+@{
+    ViewBag.Title = "GetAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Update", "Admin", FormMethod.Post))
+{
+
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.AdminID, "ID")
+        @Html.TextBoxFor(m => m.AdminID, new { @class = "form-control" })
+
+
+        <br />
+
+        @Html.LabelFor(m => m.UserName, "Kullanıcı Adı")
+        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+        <br />
+
+        @Html.LabelFor(m => m.Password, "Şifre")
+        @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+
+}
+

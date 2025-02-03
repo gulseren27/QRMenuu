@@ -1,0 +1,173 @@
+﻿@model IEnumerable<QR_menu.Models.Entity.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Kategoriler</h2>
+
+
+<div>
+
+    <table class="table table-striped" width="100%" cellspacing="0">
+        <thead>
+
+
+            <tr>
+                <th>ID </th>
+                <th>KATEGORİ ADI</th>
+                <th>AÇIKLAMA</th>
+                <th>GÜNCELLE</th>
+                <th>SİL</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+
+                <tr>
+                    <td>@c.CategoryID</td>
+                    <td>@c.CName</td>
+                    <td>@c.Description</td>
+                    <td>
+                        <a href="/Category/GetCategory/@c.CategoryID" class="fa fa-edit "></a>
+                    </td>
+                    <td>
+                        <a href="/Category/Delete/@c.CategoryID" class="fa fa-trash"></a>   
+                    </td>
+
+
+                </tr>
+
+            }
+        </tbody>
+
+    </table>
+
+    <div>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+            Kategori Ekle
+        </button>
+    </div>
+
+    <!-- Add Category Modal -->
+    <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCategoryModalLabel">Kategori Ekle</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form id="addCategoryForm" method="post" action="/Category/AddCategory">
+                        <div class="mb-3">
+                            <label for="categoryName" class="form-label">Kategori Adı</label>
+                            <input type="text" class="form-control" id="CName" name="CName" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="categoryDescription" class="form-label">Açıklama</label>
+                            <textarea class="form-control" id="Description" name="Description" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                    <button type="submit" class="btn btn-primary" id="saveCategoryButton">Kaydet</button>
+                </div>
+
+              
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<script>
+
+    //$(document).ready(function () {
+    //     //Kaydet butonuna tıklandığında
+    //    $('#saveCategoryButton').on('click', function () {
+    //        var formData = {
+    //            CName: $('#CName').val(),
+    //            Description: $('#Description').val()
+    //        };
+
+    //        // AJAX isteği
+    //        $.ajax({
+    //            url: '/Category/AddCategory', // Action URL
+    //            type: 'POST',
+    //            data: formData, // Gönderilecek veri
+    //            success: function (response) {
+    //                if (response.success) {
+    //                    $('#addCategoryModal').modal('hide'); // Modal'ı kapat
+    //                    location.reload(); // Sayfayı yenile
+    //                } else {
+    //                    alert('Bir hata oluştu');
+    //                }
+    //            },
+    //            error: function (xhr, status, error) {
+    //                alert('Hata: ' + xhr.responseText);
+    //            }
+    //        });
+    //    });
+    //});
+
+
+    document.getElementById("saveCategoryButton").addEventListener("click", function (event) {
+        event.preventDefault(); // Varsayılan form submit işlemini engelle
+        var CName = document.getElementById("CName").value;
+        var Description = document.getElementById("Description").value;
+
+        if (!CName || !Description) {
+            alert("Lütfen tüm alanları doldurun.");
+            return;
+        }
+
+        fetch("/Category/AddCategory", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ CName: CName, Description: Description })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("HTTP hatası: " + response.status);
+                }
+                return response.json().then(data => ({ status: response.status, body: data }));
+            })
+            .then(({ status, body }) => {
+                if (body.success) {
+                    alert(body.message); // Başarı mesajını göster
+                    //var modalElement = document.getElementById("addCategoryModal");
+                    //var modalInstance = bootstrap.Modal.getInstance(modalElement);
+                    //modalInstance.hide(); // Modal'ı kapat
+                    window.location.reload(); // Sayfayı yeniden yükle
+                   
+                } else {
+                    alert("Hata: " + body.message);
+                }
+            })
+            //.catch(error => {
+            //    console.error("Hata:", error);
+            //    alert("Bir hata oluştu, lütfen tekrar deneyin.");
+            //});
+    });
+
+
+
+  
+</script>
+
+
+
+
+
+
