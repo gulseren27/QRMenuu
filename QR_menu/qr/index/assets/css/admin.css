@@ -1,0 +1,230 @@
+ 
+
+
+Genel Stiller 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+ Login Sayfası Stilleri 
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+Admin Panel Stilleri
+.admin-container {
+    display: flex;
+    flex-direction: row; /* Yan yana sıralama */
+    height: 100vh; /* Tüm yüksekliği kaplasın */
+}
+
+.sidebar {
+    width: 250px; /* Sidebar genişliği */
+    background-color: #2c3e50; /* İstediğiniz arka plan rengi */
+    color: white;
+    height: 100%; /* Tam yükseklik */
+    position: fixed; /* Sabit pozisyon */
+}
+
+.side-container {
+    flex: 1; /* Kalan alanı kaplar */
+    margin-left: 220px; /* Sidebar genişliği kadar boşluk bırakır */
+    padding: 10px; /* İçerik için biraz boşluk */
+    overflow: auto; /* Taşma durumunda kaydırma çubuğu */
+}
+
+
+.logo {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #34495e;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.sidebar nav ul li a i {
+    margin-right: 10px;
+}
+
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a.active {
+    background: #34495e;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.top-bar {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.add-btn {
+    padding: 8px 15px;
+    background: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+ Modal Stilleri 
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+Responsive Tasarım
+
+@media (max-width: 768px) {
+    .admin-container
+
+{
+    flex-direction: column; /* Mobilde üste alta dizilir */
+}
+
+.sidebar {
+    width: 100%; /* Tam genişlik alır */
+    height: auto; /* İçeriğe göre yüksekliği ayarlanır */
+}
+
+.side-container {
+    margin-left: 0; /* Boşluk kaldırılır */
+    padding: 10px;
+}
+    .main-content {
+        padding: 10px;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card i {
+    font-size: 2.5rem;
+    color: #4a90e2;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #555;
+    font-size: 1.1rem;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.card .number {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+ 

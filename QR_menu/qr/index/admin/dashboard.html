@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Paneli - Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>Yönetim Paneli</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active">
+                        <a href="dashboard.html"><i class="fas fa-home"></i> Anasayfa</a>
+                    </li>
+                    <li>
+                        <a href="categories.html"><i class="fas fa-list"></i> Kategoriler</a>
+                    </li>
+                    <li>
+                        <a href="products.html"><i class="fas fa-box"></i> Ürünler</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <!-- Ana İçerik -->
+        
+        <!-- Ana İçerik -->
+        <div class="main-content">
+            <!-- Anasayfa -->
+            <div class="dashboard-cards">
+                <div class="card">
+                    <i class="fas fa-list"></i>
+                    <h3>Toplam Kategori</h3>
+                    <p class="number">24</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-box"></i>
+                    <h3>Toplam Ürün</h3>
+                    <p class="number">156</p>
+                </div>
+            </div>
+
+            <!-- İçerik Alanı -->
+            <div class="content">
+                <!-- Kategoriler Bölümü -->
+                <div id="categories-section" class="section">
+                    <div class="section-header">
+                        <h2>Kategoriler</h2>
+                        <button class="add-btn" id="addCategoryBtn">
+                            <i class="fas fa-plus"></i> Yeni Kategori
+                        </button>
+                    </div>
+                    <div id="categories-list" class="list-container">
+                        <!-- Kategoriler JavaScript ile yüklenecek -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body">
+                <!-- Modal içeriği JavaScript ile doldurulacak -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html> 

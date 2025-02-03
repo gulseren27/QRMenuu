@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kategoriler - Yönetim Paneli</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sol Menü -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>Yönetim Paneli</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="dashboard.html"><i class="fas fa-home"></i> Anasayfa</a>
+                    </li>
+                    <li class="active">
+                        <a href="categories.html"><i class="fas fa-list"></i> Kategoriler</a>
+                    </li>
+                    <li>
+                        <a href="products.html"><i class="fas fa-box"></i> Ürünler</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Ana İçerik -->
+        <div class="main-content">
+            <div class="table-container">
+                <div class="table-header">
+                    <h2>Kategoriler</h2>
+                    <button class="add-btn" onclick="openModal('kategoriModal')">
+                        <i class="fas fa-plus"></i> Yeni Kategori
+                    </button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Kategori Adı</th>
+                            <th>Açıklama</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Elektronik</td>
+                            <td>Elektronik ürünler</td>
+                            <td>
+                                <button class="edit-btn" onclick="openModal('kategoriModal', 1)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="delete-btn" onclick="deleteKategori(1)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kategori Modal -->
+    <div id="kategoriModal" class="modal"></div>
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('kategoriModal')">&times;</span>
+            <h2>Kategori Ekle/Düzenle</h2>
+            <form id="kategoriForm">
+                <div class="form-group">
+                    <label>Kategori Adı:</label>
+                    <input type="text" id="kategoriAdi" required>
+                </div>
+                <div class="form-group">
+                    <label>Açıklama:</label>
+                    <textarea id="kategoriAciklama"></textarea>
+                </div>
+                <button type="submit" class="save-btn">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html> 
