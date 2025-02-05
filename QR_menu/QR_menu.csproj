@@ -208,6 +208,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\pizza.jpg" />
+    <Content Include="Images\Siyah Beyaz Mermer Dokulu Baharatlı Menü Tasarımı %281%29.png" />
     <Content Include="Models\Entity\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -228,7 +229,6 @@
     <Content Include="qr\index\assets\js\admin-login.js" />
     <Content Include="qr\index\assets\js\admin.js" />
     <Content Include="qr\index\assets\js\main.js" />
-    <Content Include="qr\index\index.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Entity\Model1.edmx">
@@ -2161,7 +2161,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="qr\index\uploads\" />
     <Folder Include="Views\Dashboard\" />
   </ItemGroup>
   <ItemGroup>
