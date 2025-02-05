@@ -208,7 +208,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\pizza.jpg" />
-    <Content Include="Images\Siyah Beyaz Mermer Dokulu Baharatlı Menü Tasarımı %281%29.png" />
+    <Content Include="Images\login-menu.png" />
     <Content Include="Models\Entity\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
