@@ -28,7 +28,7 @@
           </Key>
           <Property Name="PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PName" Type="nvarchar" MaxLength="50" />
-          <Property Name="PDescription" Type="nvarchar" MaxLength="50" />
+          <Property Name="PDescription" Type="nvarchar(max)" />
           <Property Name="CategoryID" Type="int" />
           <Property Name="Price" Type="int" />
           <Property Name="Image" Type="nvarchar" MaxLength="50" />
@@ -111,7 +111,7 @@
           </Key>
           <Property Name="PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CategoryID" Type="Int32" />
           <Property Name="Price" Type="Int32" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />

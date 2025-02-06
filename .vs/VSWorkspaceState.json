@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\QR_menu",
+    "\\QR_menu\\qr",
+    "\\QR_menu\\qr\\index",
+    "\\QR_menu\\qr\\index\\assets",
+    "\\QR_menu\\qr\\index\\assets\\css"
   ],
-  "SelectedNode": "\\QR_menu.sln",
+  "SelectedNode": "\\QR_menu\\qr\\index\\assets\\css\\login-style.css",
   "PreviewInSolutionExplorer": false
 }

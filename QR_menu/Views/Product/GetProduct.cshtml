@@ -15,9 +15,12 @@
 
 
     <br />
-    @Html.LabelFor(m => m.Image, "Görsel")
-    @Html.TextBoxFor(m => m.Image, new { @class = "form-control" })
+    @*@Html.LabelFor(m => m.Image, "Görsel")
+        @Html.TextBoxFor(m => m.Image, new { @class = "form-control" })
 
+        <br />*@
+    @Html.Label("Yeni Görsel Seç")
+    <input type="file" name="newImage" class="form-control" />
     <br />
 
     @Html.LabelFor(m => m.PName, "Ürün Adı")
