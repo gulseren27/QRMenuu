@@ -20,7 +20,7 @@
 
             if (categoryProducts.Any()) // Kategoriye ait ürün varsa göster
             {
-                <h3 class="category-title">@c.CName</h3> <!-- Kategori başlığı -->
+                <h2 class="category-title">@c.CName</h2> <!-- Kategori başlığı -->
 
                 <div class="row">
                     <!-- Ürünleri yan yana hizalamak için -->
@@ -34,9 +34,9 @@
                                 </div>
                                 <div class="detail-box">
                                     <h5>@p.PName</h5>
-                                    <p>@p.PDescription</p>
+                                    <p style="height:160px">@p.PDescription</p>
                                     <div class="options">
-                                        <h6>@p.Price ₺</h6>
+                                        <h6 style="background-color:#f4a460; border-radius:50px 50px; text-align:center; width:50px">@p.Price ₺</h6>
                                         @*<a href="">
                                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                                             <g>
@@ -68,9 +68,9 @@
         <div class="footer-info">
             <p>
                 &copy; <span id="displayYear"></span> All Rights Reserved By
-                <a href="https://html.design/">Free Html Templates</a><br><br>
-                &copy; <span id="displayYear"></span> Distributed By
-                <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+                <a href="https://html.design/">Ferhat Ak Danışmanlık</a><br><br>
+                @*&copy; <span id="displayYear"></span> Distributed By
+                <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>*@
             </p>
         </div>
     </div>

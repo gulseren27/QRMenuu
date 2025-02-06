@@ -1,6 +1,7 @@
 ﻿using QR_menu.Models.Entity;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -77,14 +78,24 @@ namespace QR_menu.Controllers
 
 
 
-        public ActionResult Update(Product p1)
+        public ActionResult Update(Product p1, HttpPostedFileBase Image)
         {
             var urunn = db.Product.Find(p1.PID);
             urunn.PName = p1.PName;
             urunn.Image = p1.Image;
+            urunn.PDescription = p1.PDescription;
             var ktg = db.Category.Where(m => m.CategoryID == p1.Category.CategoryID).FirstOrDefault();
             urunn.CategoryID = p1.Category.CategoryID;
             urunn.Price = p1.Price;
+            // Yeni bir görsel seçildiyse, kaydet ve güncelle
+            if (Image != null && Image.ContentLength > 0)
+            {
+                string fileName = Path.GetFileName(Image.FileName);
+                string filePath = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                Image.SaveAs(filePath);
+                urunn.Image = fileName; // Yeni görselin adını veritabanına kaydet
+            }
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }
